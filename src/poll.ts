@@ -25,7 +25,7 @@ export function pollfd_list(dst: DataView, count: number): [PollFdIn[], Error] {
         };
         ret.push(temp);
     }
-    return [ret, null]
+    return [ret, null];
 }
 
 export function pollfd_unmarshal(dst: DataView, pollfd_list: PollFdIn[]): void {
