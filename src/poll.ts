@@ -6,7 +6,8 @@ export const PollFdDef: StructDef = {
 		{name: 'events',    type: 'int16'},
 		{name: 'revents', type: 'uint16'},
 	],
-	alignment: 'natural', // 'packed'
+    alignment: 'natural', // 'packed'
+    length: '64',
 };
 
 export interface PollFdIn {
