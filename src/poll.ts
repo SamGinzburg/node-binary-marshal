@@ -6,8 +6,8 @@ export const PollFdDef: StructDef = {
 		{name: 'events',    type: 'int16'},
 		{name: 'revents', type: 'uint16'},
 	],
-    alignment: 'natural', // 'packed'
-    length: '64',
+	alignment: 'natural', // 'packed'
+	length: 64,
 };
 
 export interface PollFdIn {
@@ -17,24 +17,24 @@ export interface PollFdIn {
 };
 
 export function pollfd_list(dst: DataView, count: number): [PollFdIn[], Error] {
-    let ret: PollFdIn[] = [];
-    for (let c = 0; c < count; c++) {
-        let temp: PollFdIn = {
-            fd: dst.getInt32(c * PollFdDef.length),
-            events: dst.getInt16(c * PollFdDef.length + 32),
-            revents: dst.getInt16(c * PollFdDef.length + 48),
-        };
-        ret.push(temp);
-    }
-    return [ret, null];
+	let ret: PollFdIn[] = [];
+	for (let c = 0; c < count; c++) {
+		let temp: PollFdIn = {
+			fd: dst.getInt32(c * PollFdDef.length),
+			events: dst.getInt16(c * PollFdDef.length + 32),
+			revents: dst.getInt16(c * PollFdDef.length + 48),
+		};
+		ret.push(temp);
+	}
+	return [ret, null];
 }
 
 export function pollfd_unmarshal(dst: DataView, pollfd_list: PollFdIn[]): void {
-    for (let c = 0; c < pollfd_list.length; c++) {
-        dst.setInt32(c * PollFdDef.length, pollfd_list[c].fd);
-        dst.setInt16(c * PollFdDef.length + 32, pollfd_list[c].events);
-        dst.setInt16(c * PollFdDef.length + 48, pollfd_list[c].revents);
-    }
+	for (let c = 0; c < pollfd_list.length; c++) {
+		dst.setInt32(c * PollFdDef.length, pollfd_list[c].fd);
+		dst.setInt16(c * PollFdDef.length + 32, pollfd_list[c].events);
+		dst.setInt16(c * PollFdDef.length + 48, pollfd_list[c].revents);
+	}
 }
 
 
