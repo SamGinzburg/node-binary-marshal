@@ -1,7 +1,11 @@
 import * as _m from './marshal';
 import * as _so from './socket';
 import * as _fs from './fs';
+import * as _poll from './poll';
+import * as _rlimit from './rlimit';
 export declare var Marshal: typeof _m.Marshal;
 export declare var Unmarshal: typeof _m.Unmarshal;
 export declare var socket: typeof _so;
 export declare var fs: typeof _fs;
+export declare var poll: typeof _poll;
+export declare var rlimit: typeof _rlimit;
