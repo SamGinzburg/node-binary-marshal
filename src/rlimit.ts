@@ -2,11 +2,11 @@ import { StructDef, Marshal, Unmarshal, isZero } from './marshal';
 
 export const rlimit: StructDef = {
 	fields: [
-		{name: 'rlim_cur',    type: 'uint32'},
-		{name: 'rlim_max',    type: 'uint32'},
+		{name: 'rlim_cur',    type: 'uint64'},
+		{name: 'rlim_max',    type: 'uint64'},
 	],
 	alignment: 'natural', // 'packed'
-	length: 64,
+	length: 128,
 };
 
 export interface RlimitIn {
