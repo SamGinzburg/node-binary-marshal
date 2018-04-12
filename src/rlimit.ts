@@ -19,8 +19,8 @@ export interface RlimitIn {
 };
 
 export function rlimit_struct_marshal(dst: DataView, value: number): void {
-		dst.setInt32(0, value);
-		dst.setInt32(32, value);
-		dst.setInt32(64, value);
-		dst.setInt32(96, value);
+	dst.setInt32(0, value);
+	dst.setInt32(31, 0);
+	dst.setInt32(63, value);
+	dst.setInt32(95, 0);
 }
