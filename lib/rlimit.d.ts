@@ -6,3 +6,4 @@ export interface RlimitIn {
     rlim_max: number;
     padding2: number;
 }
+export declare function rlimit_struct_marshal(dst: DataView, value: number): void;
