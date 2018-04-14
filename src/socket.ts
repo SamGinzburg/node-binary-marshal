@@ -76,7 +76,7 @@ export const SockAddrInDef: StructDef = {
 		},
 		{
 			name:      'addr',
-			type:      'uint8',
+			type:      'uint32',
 			count:     4,
 			JSONType:  'string',
 			marshal:   IPv4StrToBytes,
@@ -91,5 +91,5 @@ export const SockAddrInDef: StructDef = {
 		},
 	],
 	alignment: 'natural', // 'packed'
-	length: 16,
+	length: 72,
 };
